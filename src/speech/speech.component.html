@@ -1,0 +1,7 @@
+<div>
+  <button (click)="startRecording()" [disabled]="isRecording">Start Recording</button>
+  <button (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
+</div>
+<div *ngIf="audioUrl">
+  <button (click)="playAudio()">Play Response</button>
+</div>
