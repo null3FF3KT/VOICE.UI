@@ -29,7 +29,9 @@ jobs:
         run: npm ci
       
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          node -e "const fs=require('fs');const config={functionKey:process.env.FUNCTION_KEY};fs.writeFileSync('dist/voice.ui/browser/assets/config.json',JSON.stringify(config));"
         env:
           FUNCTION_KEY: ${{ secrets.FUNCTION_KEY }}
       
