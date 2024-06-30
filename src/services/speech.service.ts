@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SpeechService {
-  private apiUrl = 'http://localhost:7071/api/ProcessAudio';
+  private apiUrl = 'https://voice-func-app.azurewebsites.net/api/ProcessAudio';
 
   constructor(private http: HttpClient) {}
 
