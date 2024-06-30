@@ -4,6 +4,8 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app-routing.module';
 
 function initializeApp(http: HttpClient) {
   return () => new Promise<void>(async (resolve) => {
@@ -21,6 +23,7 @@ function initializeApp(http: HttpClient) {
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideRouter(routes),
     importProvidersFrom(HttpClientModule),
     {
       provide: APP_INITIALIZER,
@@ -29,4 +32,4 @@ bootstrapApplication(AppComponent, {
       multi: true
     }
   ]
-}).catch(err => console.error('Application failed to start'));
+}).catch(err => console.error('Application failed to start:', err));
